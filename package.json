@@ -1,0 +1,15 @@
+{
+  "name": "tsgolf-chatbot",
+  "version": "1.0.0",
+  "description": "TS GOLF Official Website-Matched Customer Chatbot",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "test": "node test_suite.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5"
+  }
+}

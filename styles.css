@@ -1,0 +1,678 @@
+/* TS GOLF Official Store & Chatbot Visual System */
+:root {
+  --color-near-black: #121212;
+  --color-black: #000000;
+  --color-white: #FFFFFF;
+  --color-light-bg: #F8F9FA;
+  --color-light-border: #E5E5E5;
+  --color-secondary-grey: #666666;
+  --color-text-main: #121212;
+  --color-text-sub: #757575;
+  --color-olive-accent: #121212;
+  --color-sale-red: #D32F2F;
+  
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  --radius-button: 999px;
+  --radius-input: 8px;
+  --radius-card: 12px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-white);
+  color: var(--color-text-main);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Store Top Announcement Bar */
+.topbar {
+  background-color: var(--color-near-black);
+  color: var(--color-white);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-align: center;
+  padding: 0.625rem 1rem;
+  letter-spacing: 0.02em;
+}
+
+/* Store Navigation Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem;
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-light-border);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+}
+
+.brand-logo {
+  font-size: 1.5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  color: var(--color-near-black);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.brand-badge {
+  background: var(--color-near-black);
+  color: var(--color-white);
+  font-size: 0.6875rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-text-main);
+  font-weight: 500;
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.nav-links a:hover {
+  color: var(--color-secondary-grey);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.cart-icon-btn {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+}
+
+.cart-badge {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  background: var(--color-near-black);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Store Hero Section */
+.hero {
+  background-color: var(--color-near-black);
+  color: var(--color-white);
+  padding: 4.5rem 2rem;
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.125rem;
+  opacity: 0.9;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+.btn-primary {
+  background-color: var(--color-white);
+  color: var(--color-near-black);
+  border: 1px solid var(--color-white);
+  padding: 0.75rem 2rem;
+  border-radius: var(--radius-button);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-near-black);
+  color: var(--color-white);
+}
+
+/* Store Catalog Grid */
+.catalog-section {
+  max-width: 1200px;
+  margin: 4rem auto;
+  padding: 0 1.5rem;
+}
+
+.section-title {
+  font-size: 1.75rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 2rem;
+}
+
+.store-product-card {
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-card);
+  padding: 1.25rem;
+  background-color: var(--color-white);
+  transition: border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+}
+
+.store-product-card:hover {
+  border-color: var(--color-near-black);
+}
+
+.product-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  background-color: var(--color-light-bg);
+  border-radius: calc(var(--radius-card) - 0.25rem);
+  overflow: hidden;
+  margin-bottom: 1rem;
+}
+
+.product-img-wrapper img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-sale-tag {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background-color: var(--color-sale-red);
+  color: white;
+  font-weight: 700;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+}
+
+.store-product-title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+  color: var(--color-text-main);
+}
+
+.store-product-price {
+  margin-top: auto;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sale-price {
+  color: var(--color-sale-red);
+  font-weight: 800;
+  font-size: 1.125rem;
+}
+
+.regular-price {
+  color: var(--color-text-sub);
+  text-decoration: line-through;
+  font-size: 0.9rem;
+}
+
+.btn-card {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: var(--radius-button);
+  border: 1px solid var(--color-near-black);
+  background-color: var(--color-near-black);
+  color: white;
+  font-weight: 600;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-card:hover {
+  background-color: var(--color-black);
+}
+
+/* Eco Section */
+.eco-banner {
+  background-color: var(--color-light-bg);
+  border-top: 1px solid var(--color-light-border);
+  border-bottom: 1px solid var(--color-light-border);
+  color: var(--color-text-main);
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+.eco-banner h2 {
+  font-size: 1.75rem;
+  margin-bottom: 0.75rem;
+}
+
+.eco-banner p {
+  max-width: 700px;
+  margin: 0 auto;
+  color: var(--color-secondary-grey);
+  font-size: 1rem;
+}
+
+/* ==================================================
+   TS GOLF CHATBOT WIDGET - NATIVE WEBSITE STYLING
+   ================================================== */
+#tsgolf-chat-widget {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  font-family: var(--font-family);
+}
+
+.chat-launcher-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--color-near-black);
+  color: var(--color-white);
+  border: 1px solid var(--color-near-black);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, transform 0.15s;
+  position: relative;
+}
+
+.chat-launcher-btn:hover {
+  background-color: var(--color-black);
+  transform: scale(1.04);
+}
+
+.chat-unread-badge {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 10px;
+  height: 10px;
+  background-color: var(--color-sale-red);
+  border: 2px solid var(--color-white);
+  border-radius: 50%;
+}
+
+.chat-window {
+  position: absolute;
+  bottom: 68px;
+  right: 0;
+  width: 400px;
+  height: 600px;
+  max-height: calc(100vh - 90px);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-card);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  transform-origin: bottom right;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.chat-window.hidden {
+  transform: scale(0.92);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Chat Header */
+.chat-header {
+  background-color: var(--color-near-black);
+  color: var(--color-white);
+  padding: 0.9rem 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-near-black);
+}
+
+.chat-header-info {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.chat-avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.8rem;
+  border: 1px solid var(--color-near-black);
+}
+
+.chat-title-wrapper h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.01em;
+  color: var(--color-white);
+}
+
+.chat-subtitle {
+  font-size: 0.725rem;
+  color: var(--color-text-sub);
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background-color: #22c55e;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.chat-header-close {
+  background: none;
+  border: none;
+  color: var(--color-text-sub);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0.2rem;
+  transition: color 0.15s;
+}
+
+.chat-header-close:hover {
+  color: var(--color-white);
+}
+
+/* Chat Messages Container */
+.chat-messages {
+  flex: 1;
+  padding: 1.1rem;
+  overflow-y: auto;
+  background-color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+/* Message Bubbles */
+.chat-bubble {
+  max-width: 88%;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  font-size: 0.9rem;
+  line-height: 1.45;
+  word-wrap: break-word;
+}
+
+.chat-bubble.assistant {
+  align-self: flex-start;
+  background-color: var(--color-light-bg);
+  color: var(--color-text-main);
+  border: 1px solid var(--color-light-border);
+  border-bottom-left-radius: 2px;
+}
+
+.chat-bubble.user {
+  align-self: flex-end;
+  background-color: var(--color-near-black);
+  color: var(--color-white);
+  border-bottom-right-radius: 2px;
+}
+
+/* Quick Action Buttons - DEDICATED ISOLATED BAR */
+.quick-actions-bar {
+  padding: 0.5rem 1.1rem;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-light-border);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.quick-actions-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.quick-action-btn {
+  padding: 8px 12px;
+  border: 1px solid var(--color-light-border);
+  border-radius: 999px;
+  background: var(--color-white);
+  color: var(--color-text-main);
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+  white-space: nowrap;
+}
+
+.quick-action-btn:hover {
+  background: var(--color-light-bg);
+  color: var(--color-text-main);
+  border-color: var(--color-near-black);
+}
+
+/* In-Chat Product Card */
+.chat-product-card {
+  background-color: var(--color-white);
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-card);
+  padding: 0.85rem;
+  margin-top: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.chat-product-thumb {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: calc(var(--radius-card) - 0.25rem);
+  background-color: var(--color-light-bg);
+}
+
+.chat-product-title {
+  font-weight: 700;
+  font-size: 0.875rem;
+  color: var(--color-text-main);
+}
+
+.chat-product-price {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.chat-card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.35rem;
+}
+
+.btn-card-primary, .btn-card-secondary {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 0.775rem;
+  font-weight: 600;
+  border-radius: var(--radius-button);
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+
+.btn-card-primary {
+  background-color: var(--color-near-black);
+  color: var(--color-white);
+  border: none;
+}
+
+.btn-card-primary:hover {
+  background-color: var(--color-black);
+}
+
+.btn-card-secondary {
+  background-color: transparent;
+  color: var(--color-text-main);
+  border: 1px solid var(--color-light-border);
+}
+
+.btn-card-secondary:hover {
+  background-color: var(--color-light-bg);
+}
+
+/* Order Lookup Form inside Chat */
+.order-lookup-form {
+  background: var(--color-white);
+  border: 1px solid var(--color-light-border);
+  border-radius: var(--radius-card);
+  padding: 0.85rem;
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.order-lookup-form input {
+  padding: 0.55rem 0.75rem;
+  border-radius: var(--radius-input);
+  border: 1px solid var(--color-light-border);
+  font-size: 0.85rem;
+  color: var(--color-text-main);
+  outline: none;
+}
+
+.order-lookup-form input:focus {
+  border-color: var(--color-near-black);
+}
+
+.order-lookup-form button {
+  padding: 0.55rem;
+  border-radius: var(--radius-button);
+  background-color: var(--color-near-black);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 0.825rem;
+  border: none;
+  cursor: pointer;
+}
+
+.order-lookup-form button:hover {
+  background-color: var(--color-black);
+}
+
+/* Chat Input Bar */
+.chat-input-bar {
+  padding: 0.75rem 1rem;
+  background-color: var(--color-white);
+  border-top: 1px solid var(--color-light-border);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chat-input {
+  flex: 1;
+  padding: 0.6rem 0.85rem;
+  border-radius: var(--radius-input);
+  border: 1px solid var(--color-light-border);
+  font-size: 0.875rem;
+  outline: none;
+  font-family: inherit;
+  color: var(--color-text-main);
+}
+
+.chat-input:focus {
+  border-color: var(--color-near-black);
+}
+
+.chat-send-btn {
+  background-color: var(--color-near-black);
+  color: var(--color-white);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s;
+}
+
+.chat-send-btn:hover {
+  background-color: var(--color-black);
+}
+
+/* Responsive Mobile Layout */
+@media (max-width: 480px) {
+  #tsgolf-chat-widget {
+    bottom: 16px;
+    right: 16px;
+  }
+  .chat-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0;
+  }
+}
+

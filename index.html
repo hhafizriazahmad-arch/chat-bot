@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TS GOLF — Official Store & Customer Support</title>
+  <meta name="description" content="TS GOLF - Premium British golf practice nets, magnetic golf towels, trolley umbrellas and training accessories. Made by Golfers, for Golfers.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Announcement Bar -->
+  <div class="topbar">
+    Free shipping and returns | 20% Off Sitewide
+  </div>
+
+  <!-- Main Navigation Header -->
+  <header class="header">
+    <a href="/" class="brand-logo">
+      TS GOLF
+      <span class="brand-badge">UK</span>
+    </a>
+    <nav>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#drills">Training Hub</a></li>
+        <li><a href="#contact">Contact Us</a></li>
+      </ul>
+    </nav>
+    <div class="header-actions">
+      <button class="cart-icon-btn" aria-label="Shopping Cart">
+        🛒
+        <span id="cart-count-badge" class="cart-badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Made by Golfers, for Golfers</h1>
+    <p>Precision British design. Over 75,000+ orders worldwide and #1 best seller for golf accessories.</p>
+    <a href="#shop" class="btn-primary">Shop Now</a>
+  </section>
+
+  <!-- Product Catalog Section -->
+  <section id="shop" class="catalog-section">
+    <h2 class="section-title">Best Sellers</h2>
+    <div class="product-grid">
+
+      <!-- Product 1: Practice Golf Net -->
+      <article class="store-product-card">
+        <div class="product-img-wrapper">
+          <span class="product-sale-tag">SAVE 37%</span>
+          <img src="https://cdn.shopify.com/s/files/1/0709/0490/6045/files/Main_NO_2.jpg?v=1782292189" alt="Practice Golf Net Outdoor/ Indoor">
+        </div>
+        <h3 class="store-product-title">Practice Golf Net Outdoor/ Indoor</h3>
+        <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.5rem;">Target pockets for home & outdoor training (10x7x6 Ft).</p>
+        <div class="store-product-price">
+          <span class="sale-price">£49.99</span>
+          <span class="regular-price">£79.99</span>
+        </div>
+        <button class="btn-card" onclick="window.tsgolfChatbot.addToCart('Practice Golf Net Outdoor/ Indoor', '£49.99')">Add to Cart</button>
+      </article>
+
+      <!-- Product 2: Magnetic Golf Towel -->
+      <article class="store-product-card">
+        <div class="product-img-wrapper">
+          <span class="product-sale-tag">SAVE 30%</span>
+          <img src="https://cdn.shopify.com/s/files/1/0709/0490/6045/products/magnetic-towel-main.jpg" alt="Magnetic Golf Towel Quick Dry and Water Absorption" onerror="this.src='https://cdn.shopify.com/s/files/1/0709/0490/6045/files/Main_NO_2.jpg'">
+        </div>
+        <h3 class="store-product-title">Magnetic Golf Towel Quick Dry and Water Absorption</h3>
+        <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.5rem;">Strong magnet attaches to clubs, carts & bags. 5,000 round guarantee.</p>
+        <div class="store-product-price">
+          <span class="sale-price">£13.99</span>
+          <span class="regular-price">£19.99</span>
+        </div>
+        <button class="btn-card" onclick="window.tsgolfChatbot.addToCart('Magnetic Golf Towel', '£13.99')">Add to Cart</button>
+      </article>
+
+      <!-- Product 3: Umbrella Holder -->
+      <article class="store-product-card">
+        <div class="product-img-wrapper">
+          <span class="product-sale-tag">SAVE 5%</span>
+          <img src="https://cdn.shopify.com/s/files/1/0709/0490/6045/files/Main_NO_2.jpg" alt="Motocaddy Universal Umbrella Holder">
+        </div>
+        <h3 class="store-product-title">Motocaddy Universal Umbrella Holder</h3>
+        <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.5rem;">Fits Powakaddy, Motocaddy & most trolleys. No drilling required.</p>
+        <div class="store-product-price">
+          <span class="sale-price">£18.99</span>
+          <span class="regular-price">£19.99</span>
+        </div>
+        <button class="btn-card" onclick="window.tsgolfChatbot.addToCart('Motocaddy Universal Umbrella Holder', '£18.99')">Add to Cart</button>
+      </article>
+
+      <!-- Product 4: 62" Windproof Umbrella -->
+      <article class="store-product-card">
+        <div class="product-img-wrapper">
+          <span class="product-sale-tag">SAVE 12%</span>
+          <img src="https://cdn.shopify.com/s/files/1/0709/0490/6045/files/Main_NO_2.jpg" alt="Umbrella Windproof Resilient 62 Inch UV Protection">
+        </div>
+        <h3 class="store-product-title">Umbrella Windproof Resilient 62 Inch UV Protection</h3>
+        <p style="font-size: 0.85rem; color: #6b7280; margin-bottom: 0.5rem;">Double canopy rain & sun protection for trolley use.</p>
+        <div class="store-product-price">
+          <span class="sale-price">£34.99</span>
+          <span class="regular-price">£39.99</span>
+        </div>
+        <button class="btn-card" onclick="window.tsgolfChatbot.addToCart('62 Inch Trolley Umbrella', '£34.99')">Add to Cart</button>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- Eco Impact Section -->
+  <section class="eco-banner">
+    <h2>1 Order = 1 Tree Planted</h2>
+    <p>Since June 2025, TS GOLF has partnered with Earthly to plant mangroves in Kenya. Every purchase supports coastal ecosystems, fisheries protection, and carbon reduction.</p>
+  </section>
+
+  <!-- Footer Section -->
+  <footer id="contact" style="background-color: #171717; color: white; padding: 3rem 1.5rem; text-align: center;">
+    <p style="font-size: 1.25rem; font-weight: 800; margin-bottom: 0.5rem;">TS GOLF LTD</p>
+    <p style="font-size: 0.9rem; color: #a1a1aa; margin-bottom: 1rem;">24/7 UK Customer Support • info@tsgolf.co.uk • 01223 666663</p>
+    <p style="font-size: 0.8rem; color: #71717a;">1 View Farm Close, Dry Drayton, Cambridge CB23 8BP, UK. Reg No: 14251825</p>
+  </footer>
+
+  <!-- TS GOLF Floating Chatbot Widget Container -->
+  <div id="tsgolf-chat-widget"></div>
+
+  <!-- Scripts -->
+  <script src="chatbot.js"></script>
+</body>
+</html>
