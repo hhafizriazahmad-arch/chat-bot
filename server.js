@@ -32,7 +32,7 @@ app.use(express.json());
 app.use(express.static(__dirname));
 
 // Health Check Endpoint (Never exposes secret keys)
-app.get('/api/health', (req, res) => {
+app.get(['/api/health', '/health'], (req, res) => {
   res.json({
     status: 'online',
     brand: 'TS GOLF',
@@ -43,7 +43,7 @@ app.get('/api/health', (req, res) => {
 });
 
 // Chatbot Endpoint
-app.post('/api/chat', async (req, res) => {
+app.post(['/api/chat', '/chat'], async (req, res) => {
   try {
     const { sessionId = 'default-session', message = '' } = req.body;
     if (!message || typeof message !== 'string') {
@@ -66,13 +66,13 @@ app.post('/api/chat', async (req, res) => {
 });
 
 // Products API Sync Endpoint
-app.get('/api/products', async (req, res) => {
+app.get(['/api/products', '/products'], async (req, res) => {
   const catalog = await getLiveCatalog();
   res.json({ products: catalog });
 });
 
 // Order Lookup Endpoint
-app.post('/api/order/lookup', (req, res) => {
+app.post(['/api/order/lookup', '/order/lookup'], (req, res) => {
   const { orderNumber = '', email = '' } = req.body;
   const cleanOrder = orderNumber.trim();
 
@@ -102,18 +102,23 @@ app.post('/api/order/lookup', (req, res) => {
       handlingTime: '1–2 business days',
       transitTime: '1–3 business days',
       note: 'Your order is being handled by our UK warehouse cut-off team. If you require exact tracking, please contact info@tsgolf.co.uk.'
+    }
+  });
+});
+
 // Root route fallback for static index.html
-app.get('/', (req, res) => {
+app.get(['/', '/index.html'], (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // Export app for Vercel Serverless Function execution
 export default app;
 
-// Run standalone HTTP server in local development environment
-if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+// Run standalone HTTP server in local development environment unless executing as Vercel serverless function
+if (!process.env.VERCEL) {
   app.listen(PORT, () => {
     console.log(`TS GOLF Chatbot Server running on http://localhost:${PORT}`);
   });
 }
+
 
