@@ -102,10 +102,18 @@ app.post('/api/order/lookup', (req, res) => {
       handlingTime: '1–2 business days',
       transitTime: '1–3 business days',
       note: 'Your order is being handled by our UK warehouse cut-off team. If you require exact tracking, please contact info@tsgolf.co.uk.'
-    }
-  });
+// Root route fallback for static index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-app.listen(PORT, () => {
-  console.log(`TS GOLF Chatbot Server running on http://localhost:${PORT}`);
-});
+// Export app for Vercel Serverless Function execution
+export default app;
+
+// Run standalone HTTP server in local development environment
+if (process.env.NODE_ENV !== 'production' && !process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`TS GOLF Chatbot Server running on http://localhost:${PORT}`);
+  });
+}
+
